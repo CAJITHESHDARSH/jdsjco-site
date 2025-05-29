@@ -3,24 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>J D S J & Co</title>
+  <title>J D S J & Co - Chartered Accountants</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <style>
     :root {
       --primary-color: #2c3e50;
       --accent-color: #2980b9;
       --light-gray: #f4f4f4;
+      --light-blue: #e8f4fc;
     }
 
     body {
       background-color: #ffffff;
       color: #2c3e50;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      padding-bottom: 80px; /* Added space for WhatsApp button */
     }
 
     .nav-link {
       cursor: pointer;
       color: var(--primary-color);
+      transition: all 0.3s ease;
+      font-weight: 500;
+      padding: 0.75rem 1.25rem;
     }
 
     .nav-link.active {
@@ -31,94 +39,338 @@
 
     .tab-content > .tab-pane {
       padding-top: 2rem;
+      padding-bottom: 3rem;
     }
 
     .hero {
-      background-color: var(--accent-color);
+      background: linear-gradient(135deg, var(--accent-color), #1a5276);
       color: white;
-      padding: 3rem 0;
+      padding: 4rem 0;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: cover;
     }
 
     .hero h1 {
       font-size: 3rem;
       font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      position: relative;
     }
 
     .hero p {
       font-size: 1.5rem;
       margin-top: 1rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
     }
 
-    .hero a {
+    .btn-hero {
       color: white;
       background-color: transparent;
       border: 2px solid white;
-      padding: 10px 20px;
+      padding: 12px 35px;
       font-weight: bold;
       border-radius: 0.25rem;
       transition: all 0.3s ease;
       text-transform: uppercase;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero a:hover {
+    .btn-hero:hover {
       background-color: white;
       color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .tab-pane h2 {
       color: var(--accent-color);
       font-weight: bold;
+      margin-bottom: 1.75rem;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .tab-pane h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent-color);
     }
 
     footer {
       background-color: var(--primary-color);
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
+      padding: 2.5rem 1rem;
+      margin-top: 3rem;
     }
 
     .list-group-item {
       background-color: var(--light-gray);
       color: var(--primary-color);
+      border-left: 4px solid var(--accent-color);
+      margin-bottom: 0.5rem;
+      border-radius: 0;
+      transition: all 0.3s ease;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .list-group-item i {
+      width: 30px;
+      text-align: center;
+      margin-right: 10px;
+      color: var(--accent-color);
     }
 
     .list-group-item:hover {
       background-color: var(--accent-color);
       color: white;
-      cursor: pointer;
+      cursor: default;
+      transform: translateX(5px);
     }
 
     .partner {
-      background-color: var(--light-gray);
-      padding: 1rem;
+      background-color: var(--light-blue);
+      padding: 1.75rem;
       border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.75rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+      border: 1px solid #d1e7f9;
+    }
+
+    .partner:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
     .partner h5 {
       color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
 
     header {
       background-color: #ffffff;
       padding: 1rem;
-      border-bottom: 2px solid #ddd;
+      border-bottom: 2px solid #eaeaea;
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
 
-    header .h5 {
+    header .brand {
       color: var(--primary-color);
-      font-weight: bold;
+      font-weight: 700;
+      font-size: 1.6rem;
       margin-bottom: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    header .brand i {
+      margin-right: 10px;
+      color: var(--accent-color);
     }
 
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .hero p {
         font-size: 1.2rem;
+      }
+      header .nav-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 5px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      header .nav-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .nav-item {
+        white-space: nowrap;
+      }
+      .partner {
+        padding: 1.25rem;
+      }
+    }
+    
+    .quick-links a {
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .quick-links a:hover {
+      color: #aad8ff;
+      padding-left: 5px;
+    }
+    
+    .partner-badge {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .specialization {
+      background-color: #e1f0fa;
+      border-left: 3px solid var(--accent-color);
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .specialization ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+    
+    .specialization li {
+      margin-bottom: 8px;
+    }
+    
+    .card {
+      border: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card-title {
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-info p {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-info i {
+      width: 25px;
+      color: var(--accent-color);
+      margin-right: 10px;
+      margin-top: 3px;
+    }
+    
+    .map-container {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      height: 300px;
+      margin-top: 2rem;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    /* Partner photo styling */
+    .partner-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      margin: 0 auto 1.5rem auto;
+      display: block;
+    }
+    
+    .partner-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--light-blue);
+      padding-bottom: 1.5rem;
+    }
+    
+    .partner-title {
+      color: #555;
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        right: 15px;
       }
     }
   </style>
@@ -131,12 +383,29 @@
           contactTab.show();
         });
       }
+      
+      // Quick links functionality
+      document.querySelectorAll('.quick-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetTab = this.getAttribute('data-tab-target');
+          if (targetTab) {
+            const tab = new bootstrap.Tab(document.querySelector(targetTab));
+            tab.show();
+            
+            // Scroll to top of tab content
+            document.querySelector('.tab-content').scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
     });
   </script>
 </head>
 <body>
   <header class="py-3 px-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
-    <div class="h5">J D S J & Co</div>
+    <div class="brand">
+      J D S J & Co
+    </div>
     <ul class="nav nav-tabs mt-3 mt-md-0" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button">Home</button>
@@ -160,67 +429,362 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel">
       <section class="hero text-center">
         <h1>J D S J & Co</h1>
-        <p>Your Partners in Financial Growth & Compliance</p>
-        <a id="contact-link" class="btn mt-3">Contact Us</a>
+        <p>Your Trusted Partners in Financial Growth & Compliance</p>
+        <a id="contact-link" class="btn btn-hero">Contact Us Today</a>
       </section>
+      
+      <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title">Why Choose Us?</h3>
+              <p class="card-text">With a combined experience of over 12 years in financial services, we bring expertise, precision, and personalized solutions to every client engagement. Our commitment to excellence ensures your financial operations are efficient, compliant, and strategically aligned with your business goals.</p>
+              <ul class="mt-3">
+                <li>Proactive financial guidance</li>
+                <li>Customized compliance solutions</li>
+                <li>Industry-specific expertise</li>
+                <li>Timely and reliable service</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h3 class="card-title">Our Approach</h3>
+              <p class="card-text">We believe in building long-term relationships based on trust and results. By understanding your unique business challenges, we develop tailored financial strategies that drive growth while ensuring complete regulatory compliance.</p>
+              <div class="mt-4">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="mb-0">Strategic Insight</h5>
+                    <p class="mb-0">Beyond numbers to business strategy</p>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="mb-0">Client Partnership</h5>
+                    <p class="mb-0">Collaborative approach to success</p>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="mb-0">Growth Focus</h5>
+                    <p class="mb-0">Solutions that scale with your business</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="tab-pane fade" id="about" role="tabpanel">
-      <h2>About Us</h2>
-      <p>At J D S J & Co, we are a team of experienced Chartered Accountants dedicated to providing tailored financial solutions for businesses and individuals. Our services include tax consultancy, audit, financial reporting, and business advisory. We focus on delivering expert, timely advice to help our clients achieve financial success, ensuring compliance and transparency every step of the way. We prioritize integrity, professionalism, and building lasting relationships.</p>
+      <div class="row">
+        <div class="col-lg-7">
+          <h2>About Our Firm</h2>
+          <p>At J D S J & Co, we are a team of experienced Chartered Accountants dedicated to providing tailored financial solutions for businesses and individuals. Our services include tax consultancy, audit, financial reporting, and business advisory.</p>
+          <p>We focus on delivering expert, timely advice to help our clients achieve financial success, ensuring compliance and transparency every step of the way. We prioritize integrity, professionalism, and building lasting relationships.</p>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h4 class="card-title">Our Mission</h4>
+                  <p>To empower businesses with financial clarity and strategic insights that drive sustainable growth while ensuring complete regulatory compliance.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h4 class="card-title">Our Values</h4>
+                  <ul>
+                    <li>Integrity in all our dealings</li>
+                    <li>Excellence in service delivery</li>
+                    <li>Innovation in financial solutions</li>
+                    <li>Commitment to client success</li>
+                    <li>Professionalism in every interaction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title mb-4">Our Expertise</h4>
+              <div class="d-flex align-items-center mb-4">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                  <i class="fas fa-chart-pie fa-2x"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="mb-0">Financial Strategy</h5>
+                  <p class="mb-0">Comprehensive planning for growth</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center mb-4">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                  <i class="fas fa-balance-scale fa-2x"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="mb-0">Compliance</h5>
+                  <p class="mb-0">Ensuring regulatory adherence</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                  <i class="fas fa-search-dollar fa-2x"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="mb-0">Audit & Assurance</h5>
+                  <p class="mb-0">Rigorous financial examination</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="tab-pane fade" id="services" role="tabpanel">
-      <h2>Our Services</h2>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Statutory Audit</li>
-        <li class="list-group-item">Ind AS Conversion</li>
-        <li class="list-group-item">Due Diligence</li>
-        <li class="list-group-item">Tax Audit</li>
-        <li class="list-group-item">Book-keeping</li>
-        <li class="list-group-item">Compliance and Book Review</li>
-        <li class="list-group-item">Group Reporting</li>
-        <li class="list-group-item">Certifications</li>
-        <li class="list-group-item">Internal Audit</li>
-        <li class="list-group-item">GST Audit</li>
-        <li class="list-group-item">GST/TDS Compliance</li>
-        <li class="list-group-item">Payroll and Labour Law Compliance</li>
-      </ul>
+      <h2>Our Professional Services</h2>
+      <p class="mb-4">Comprehensive financial solutions tailored to your business needs:</p>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="fas fa-file-invoice"></i>Statutory Audit
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-exchange-alt"></i>Ind AS Conversion
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-search"></i>Due Diligence
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-chart-bar"></i>Tax Audit
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-book"></i>Book-keeping
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-tasks"></i>Compliance and Book Review
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="fas fa-layer-group"></i>Group Reporting
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-certificate"></i>Certifications
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-clipboard-check"></i>Internal Audit
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-file-contract"></i>GST Audit
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-balance-scale"></i>GST/TDS Compliance
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-users"></i>Payroll and Labour Law Compliance
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-5">
+        <div class="card bg-light-blue border-0">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h4>Need a Custom Solution?</h4>
+                <p>We understand that every business has unique financial needs. Contact us to discuss how we can create a tailored package specifically for your organization.</p>
+              </div>
+              <div class="col-md-4 d-flex align-items-center justify-content-end">
+                <a id="contact-link" class="btn btn-primary btn-lg">Request Consultation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="tab-pane fade" id="partners" role="tabpanel">
-      <h2>Partners</h2>
-      <div class="partner">
-        <h5>Darsh B Jain</h5>
-        <p>Chartered Accountant (CA), B.Com – St. Joseph’s College of Commerce. 6+ years’ experience in taxation, advisory, GST, payroll, and SOP design. Led projects across retail, logistics, F&B, and services. Skilled in financial due diligence, reporting automation, and investor reporting.</p>
+      <h2>Our Partners</h2>
+      
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="partner">
+            <div class="partner-header">
+              <img src="darsh.jpg" alt="Darsh B Jain" class="partner-photo">
+              <h5>Darsh B Jain</h5>
+              <div class="partner-title">Chartered Accountant</div>
+            </div>
+            
+            <p>Darsh B is a Chartered Accountant with over 6 years of experience in taxation, business advisory, and financial compliance. Operating out of the Bangalore office, he has served clients across industries—from startups to mid-sized enterprises—by helping them streamline operations, maintain compliance, and drive financial sustainability. His focus includes bookkeeping, GST, TDS, and payroll compliance, as well as MIS and budget preparation.</p>
+            
+            <p>He has been instrumental in designing and implementing SOPs that enhance internal controls and reporting efficiencies. Darsh has successfully led management consultancy projects in sectors such as retail, logistics, F&B, and professional services, offering practical solutions tailored to the specific needs of each organization. His involvement ensures a value-driven approach to client service.</p>
+            
+            <p>In addition, Darsh contributes to strategic initiatives such as financial due diligence, working capital optimization, and automation of financial reporting. His expertise is reflected in his ability to structure business processes, develop monthly management review frameworks, and support investor reporting through accurate reconciliations and analysis. His hands-on involvement in client delivery ensures exceptional service quality and long-term impact.</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="partner">
+            <div class="partner-header">
+              <img src="jithesh.jpg" alt="Jithesh S" class="partner-photo">
+              <h5>Jithesh S</h5>
+              <div class="partner-title">Chartered Accountant</div>
+            </div>
+            
+            <p>Jithesh S is a Chartered Accountant with a strong foundation in audit and accounting services. He completed his articleship with MSKA & Associates (Associated with BDO) in Bangalore, specializing in accounting, audit and financial reporting. After qualifying as a Chartered Accountant in 2021, he continued at MSKA & Associates as an Assistant Manager until December 2024.</p>
+            
+            <p>In January 2025, Jithesh S embarked on his independent professional journey as a freelance Chartered Accountant, offering services in bookkeeping, audit support, Internal Financial Controls (IFC) documentation, GST and income tax compliance, financial planning, and various statutory filings. As a trusted advisor to multiple clients, he brings a comprehensive and hands-on approach to solving complex financial and compliance challenges across industries.</p>
+            
+            <p>With vast experience across diverse industries including manufacturing (beverages, aviation services), SaaS, biotechnology, and third-party administration (TPA) services. He is well-versed in Ind AS, IFRS and US GAAP, having contributed to IPO readiness, technical accounting memos, and high-impact audit deliverables.</p>
+            
+            <p>He has also provided services across the deal continuum, though he has mainly focused on due diligence reviews, primarily in post-deal integrations, strategic portfolio reviews, initial public offerings, reorganizations and restructuring processes.</p>
+          </div>
+        </div>
       </div>
-      <div class="partner">
-        <h5>Jithesh S</h5>
-        <p>Chartered Accountant (CA), B.Com – St. Joseph’s College of Commerce. Former Assistant Manager at MSKA & Associates (BDO). Expertise in audit, financial reporting, tax compliance, and due diligence. Experience across aviation, biotech, SaaS, and manufacturing. Worked on IPO readiness and post-deal integration.</p>
+      
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <div class="card bg-light-blue border-0">
+            <div class="card-body text-center">
+              <h4>Schedule a Meeting with Our Partners</h4>
+              <p class="mb-4">Discuss your financial needs directly with our experienced partners</p>
+              <a id="contact-link" class="btn btn-primary btn-lg">Book a Consultation</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-<div class="tab-pane fade" id="contact" role="tabpanel">
-  <h2>Contact Us</h2>
-  <p><strong>Phone:</strong> +91 95905 26582 (Darsh B Jain) | +91 88925 88720 (Jithesh S)</p>
-  <p><strong>Email:</strong> cajitheshdarsh@gmail.com</p>
-  <p><strong>Address:</strong> Crescent Office, ETA Mall, Tank Bund Rd, Binny Pete, Cottonpete, Bengaluru, Karnataka 560026</p>
-  <hr>
-  <iframe 
-    src="https://docs.google.com/forms/d/e/1FAIpQLSf6iDwTZeiHzdvY-pEiKo3hdiNB9eI84JCCfoqL7GcLm0u4aw/viewform?embedded=true" 
-    width="100%" 
-    height="945" 
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0">
-    Loading…
-  </iframe>
-</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel">
+      <h2>Contact Our Team</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h4 class="card-title mb-4">Get in Touch</h4>
+              <div class="contact-info">
+                <p>
+                  <i class="fas fa-phone-alt"></i>
+                  <span><strong>Phone:</strong> +91 95905 26582 (Darsh B Jain)</span>
+                </p>
+                <p>
+                  <i class="fas fa-phone-alt"></i>
+                  <span><strong>Phone:</strong> +91 88925 88720 (Jithesh S)</span>
+                </p>
+                <p>
+                  <i class="fas fa-envelope"></i>
+                  <span><strong>Email:</strong> cajitheshdarsh@gmail.com</span>
+                </p>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span><strong>Address:</strong> Crescent Office, ETA Mall, Tank Bund Rd, Binny Pete, Cottonpete, Bengaluru, Karnataka 560026</span>
+                </p>
+              </div>
+              <hr class="my-4">
+              <h5 class="mb-3">Business Hours</h5>
+              <p><i class="far fa-clock me-2"></i>Monday - Friday: 9:00 AM - 6:00 PM</p>
+              <p><i class="far fa-clock me-2"></i>Saturday: 10:00 AM - 2:00 PM</p>
+              <p><i class="far fa-clock me-2"></i>Sunday: Closed</p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title mb-4">Why Contact Us?</h4>
+              <ul>
+                <li>Personalized financial consultation</li>
+                <li>Free initial assessment of your needs</li>
+                <li>Customized service packages</li>
+                <li>Quick response to inquiries</li>
+                <li>Expert guidance on complex matters</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title mb-4">Send us a Message</h4>
+              <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSf6iDwTZeiHzdvY-pEiKo3hdiNB9eI84JCCfoqL7GcLm0u4aw/viewform?embedded=true" 
+                width="100%" 
+                height="500" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+                Loading…
+              </iframe>
+            </div>
+          </div>
+          
+          <div class="map-container mt-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.032790366116!2d77.5797196!3d12.966580599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d5d5d5d5d5%3A0x5b5d5d5d5d5d5d5d!2sETA%20Mall%2C%20Tank%20Bund%20Rd%2C%20Binny%20Pete%2C%20Cottonpete%2C%20Bengaluru%2C%20Karnataka%20560026!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/918892588720" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <footer>
-    <p>&copy; 2025 J D S J & Co. All rights reserved.</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0 text-md-start">
+          <h5>J D S J & Co</h5>
+          <p>Professional Chartered Accountants providing comprehensive financial solutions for businesses and individuals.</p>
+          <div class="d-flex mt-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled quick-links">
+            <li><a href="#" data-tab-target="#home-tab">Home</a></li>
+            <li><a href="#" data-tab-target="#about-tab">About Us</a></li>
+            <li><a href="#" data-tab-target="#services-tab">Services</a></li>
+            <li><a href="#" data-tab-target="#partners-tab">Partners</a></li>
+            <li><a href="#" data-tab-target="#contact-tab">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <h5>Subscribe to Our Newsletter</h5>
+          <p>Stay updated with the latest financial insights and compliance updates</p>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Your email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4 bg-light">
+      <p>&copy; 2025 J D S J & Co. All rights reserved. | Chartered Accountants Firm</p>
+    </div>
   </footer>
 </body>
 </html>
